@@ -13,10 +13,11 @@ public struct Point: Equatable, Hashable {
     var y: Int
 }
 
-public class Day3Solution: Day {
+public struct Day3Solution: Day {
+    public init() { }
     
-    public func run1() {
-        let stringInput = try! File(path: "Day3Input").readAsString()
+    public func run1() -> String {
+        let stringInput = try! File(path: "Day3Input.txt").readAsString()
         let splitInput = stringInput.split(separator: "\n")
         let wire1 = splitInput[0].split(separator: ",").map({ String($0) })
         let wire1Points = self.runPoints(input: wire1)
@@ -26,11 +27,11 @@ public class Day3Solution: Day {
         
         let commonPoints = Array(Set(wire1Points).intersection(Set(wire2Points)))
         let distances = commonPoints.map({ abs($0.x) + abs($0.y) })
-        print(distances.min() ?? -1)
+        return "\(distances.min() ?? -1))"
     }
     
-    public func run2() {
-        let stringInput = try! File(path: "Day3Input").readAsString()
+    public func run2() -> String {
+        let stringInput = try! File(path: "Day3Input.txt").readAsString()
         let splitInput = stringInput.split(separator: "\n")
         let wire1 = splitInput[0].split(separator: ",").map({ String($0) })
         let wire1Points = self.runPoints(input: wire1)
@@ -48,7 +49,7 @@ public class Day3Solution: Day {
         let minimum = pointsToNum.min { (one, two) -> Bool in
             one.value < two.value
         }
-        print(minimum!.value)
+        return "\(minimum!.value))"
     }
     
     private func moveUp(point: Point) -> Point {

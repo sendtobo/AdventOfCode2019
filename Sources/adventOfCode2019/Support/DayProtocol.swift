@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol Day {
-    func run1()
-    func run2()
+    func run1() -> String
+    func run2() -> String
 }

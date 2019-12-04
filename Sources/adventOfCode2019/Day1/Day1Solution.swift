@@ -8,34 +8,37 @@
 import Foundation
 import Files
 
-public class Day1Solution: Day {
-    public func run1() {
-        let stringInput = try! File(path: "Day1Input").readAsString()
+public struct Day1Solution: Day {
+    public init() { }
+    public func run1() -> String {
+        let stringInput = try! File(path: "Day1Input.txt").readAsString()
         let splitInput = stringInput.split(separator: "\n")
         var total = 0
         for input in splitInput {
-            let fuel = (Int(String(input))! / 3) - 2
+            guard let newFuel = Int(String(input)) else { continue }
+            let fuel = (newFuel / 3) - 2
             total += fuel
         }
-        print(total)
+        return "\(total)"
     }
     
-    public func run2() {
-        let stringInput = try! File(path: "Day1Input").readAsString()
+    public func run2() -> String {
+        let stringInput = try! File(path: "Day1Input.txt").readAsString()
         let splitInput = stringInput.split(separator: "\n")
         var total = 0
         for input in splitInput {
-            let fuel = self.calculateFuel(Int(String(input))!)
+            guard let newFuel = Int(String(input)) else { continue }
+            let fuel = self.calculateFuel(newFuel)
             total += fuel
         }
-        print(total)
+        return "\(total)"
     }
     
     private func calculateFuel(_ input: Int) -> Int {
         var fuel = (input / 3) - 2
         fuel = fuel > 0 ? fuel : 0
         if fuel > 0 {
-            fuel += calculateFuel(fuel)
+            fuel += self.calculateFuel(fuel)
         }
         return fuel
     }

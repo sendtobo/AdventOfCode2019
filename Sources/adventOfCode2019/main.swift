@@ -1,3 +1,3 @@
-let day: Day = Day4Solution()
-day.run1()
-//day.run2()
+let day: Day = Day1Solution()
+print(day.run1())
+//print(day.run2())
