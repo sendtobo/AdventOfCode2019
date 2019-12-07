@@ -1,9 +1,10 @@
 import XCTest
+import AdventOfCode2019
 
 #if !canImport(ObjectiveC)
 public func allTests() -> [XCTestCaseEntry] {
     return [
-        testCase(adventOfCode2019Tests.allTests),
+        testCase(AdventOfCode2019Tests.allTests),
     ]
 }
 #endif

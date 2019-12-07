@@ -4,15 +4,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "adventOfCode2019",
-    dependencies: [
-        .package(url: "https://github.com/JohnSundell/Files", from: "4.0.0"),
+    name: "AdventOfCode2019",
+    products: [
+        .library(
+            name: "AdventOfCode2019",
+            targets: ["AdventOfCode2019"]),
     ],
     targets: [
-        .target(name: "adventOfCode2019",
-                dependencies: ["Files"]),
+        .target(name: "AdventOfCode2019",
+                dependencies: []),
         .testTarget(
-            name: "adventOfCode2019Tests",
-            dependencies: ["adventOfCode2019"]),
+            name: "AdventOfCode2019Tests",
+            dependencies: ["AdventOfCode2019"]),
     ]
 )
