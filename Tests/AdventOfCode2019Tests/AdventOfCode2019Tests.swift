@@ -31,6 +31,11 @@ final class AdventOfCode2019Tests: XCTestCase {
         XCTAssertEqual(Day6Solution().run1(), "223251")
         XCTAssertEqual(Day6Solution().run2(), "430")
     }
+    
+    func testDay7() throws {
+        XCTAssertEqual(Day7Solution().run1(), "")
+        XCTAssertEqual(Day7Solution().run2(), "")
+    }
 
     static var allTests = [
         ("testDay1", testDay1),
